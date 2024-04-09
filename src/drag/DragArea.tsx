@@ -1,17 +1,12 @@
 import React from "react";
-import { useDragContext } from "./DragContext";
+import { useDragContext } from "../hooks/useDragFormContex";
 import { List } from "@mui/material";
-type ItemType = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-};
+import { User } from "../types/drag";
+
 
 type DragAreaProps = {
-  items: ItemType[];
-  onChange: (items: ItemType[]) => void;
+  items: User[];
+  onChange: (items: User[]) => void;
   children: React.ReactNode;
 };
 

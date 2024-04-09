@@ -2,11 +2,14 @@ import React, { createContext, useState } from "react";
 type DraggedItemType = {
   index: number | null;
 };
+
+type DragNDrop = DraggedItemType | null | number;
+
 type DragContextType = {
-  draggedItem: DraggedItemType | null | number;
-  setDraggedItem: (item: DraggedItemType | null | number) => void;
-  dropIndex: number | null | DraggedItemType;
-  setDropIndex: (index: number | null | DraggedItemType) => void;
+  draggedItem: DragNDrop;
+  setDraggedItem: (item: DragNDrop) => void;
+  dropIndex: DragNDrop;
+  setDropIndex: (index: DragNDrop) => void;
 };
 
 export const DragContext = createContext<DragContextType | undefined>(
@@ -23,7 +26,6 @@ export const DragProvider: React.FC<{ children: React.ReactNode }> = ({
     null
   );
 
-
   return (
     <DragContext.Provider
       value={{ draggedItem, setDraggedItem, dropIndex, setDropIndex }}
@@ -31,12 +33,4 @@ export const DragProvider: React.FC<{ children: React.ReactNode }> = ({
       {children}
     </DragContext.Provider>
   );
-};
-
-export const useDragContext = () => {
-  const context = React.useContext(DragContext);
-  if (context === undefined) {
-    throw new Error("useDragContext must be used within a DragProvider");
-  }
-  return context;
 };

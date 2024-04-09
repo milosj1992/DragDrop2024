@@ -4,15 +4,7 @@ import { DragArea } from "./DragArea";
 import { DragItem } from "./DragItem";
 import users from "../data/users.json";
 import UserItem from "./UserItem";
-
-
-type User = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-};
+import { User } from "../types/drag";
 
 export const DraggableUserList = () => {
   const [exampleUsers, setExampleUsers] = useState<User[]>(users);
