@@ -11,12 +11,12 @@ export const DragItem: React.FC<DragItemProps> = ({ index, children }) => {
   const { setDraggedItem, setDropIndex } = useDragContext();
 
   const handleDragStart = (e: React.DragEvent<HTMLLIElement>) => {
-    console.log({ index });
+  
     setDraggedItem({ index });
   };
 
   const handleDragEnd = (e: React.DragEvent<HTMLLIElement>) => {
-    console.log({ index });
+ 
     setDraggedItem(null);
   };
 

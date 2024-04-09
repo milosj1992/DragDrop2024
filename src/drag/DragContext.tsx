@@ -23,7 +23,7 @@ export const DragProvider: React.FC<{ children: React.ReactNode }> = ({
     null
   );
 
-  console.log(draggedItem);
+
   return (
     <DragContext.Provider
       value={{ draggedItem, setDraggedItem, dropIndex, setDropIndex }}
